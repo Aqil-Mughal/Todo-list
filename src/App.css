@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@500&display=swap");
+
+body {
+  /* background: url("http://superdevresources.com/wp-content/uploads/2014/02/pattern-background.png"); */
+  font-family: "Bree Serif", serif;
+  background-color: black;
+  /* border:1px solid red; */
+}
+
+.app {
+  height: 10em;
+  position: relative;
+  width: 40vw;
+  text-align: center;
+  margin-left: 30%;
+}
+
+.todoapp {
+  width: 90%;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+  float: center;
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: space-evenly;
+  padding: 20px;
+  background: linear-gradient(10deg, #02010161 0%, #7f4f6d 100%);
+  color: rgb(237, 228, 228);
+  /* border: 0px solid rebeccapurple; */
+  border-radius: 10px;
+  /* box-shadow: 10px 10px rgb(219, 81, 81); */
+  /* height:10vh; */
+  /* border: 1px solid black; */
+}
+
+.todoapp h1,
+h2 {
+  background-color: rgba(225, 211, 209, 0.357);
+  padding: 5px;
+  /* border: 1px solid rgb(28, 28, 175); */
+  border-radius: 20px;
+  text-align: center;
+  /* margin: 5% 10% ; */
+}
+.add {
+  margin-top: 15px;
+  cursor: pointer;
+  size: 70px;
+}
+
+/*form css*/
+
+.form {
+  padding: 30px;
+  
+}
+
+.textfield {
+  color: #c8b0c0;
+}
+
+/*todo*/
+.todo {
+  display: flex;
+  /* flex-direction: column; */
+}
+.list {
+  margin-top: 10px;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin-left: 5px;
+  text-align: start;
+ 
+}
+
+.icon {
+  cursor: pointer;
+  color: rgb(99, 74, 97);
+}
+.icon:hover {
+  color: white;
+}
+
+.complete {
+  background-color: #fff;
+  text-decoration: line-through;
+  margin-left: 30px;
+}
+
+.pending {
+  color: #333;
+  margin-left: 30px;
+}
