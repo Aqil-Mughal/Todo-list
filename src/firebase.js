@@ -1,5 +1,5 @@
 import firebase from "firebase";
-//from 1st may
+
 var firebaseConfig = {
   apiKey: "AIzaSyD4lvKwzWrvSkb8d2yvrFbfNuuO1qFzdek",
   authDomain: "todolist-app-87201.firebaseapp.com",
