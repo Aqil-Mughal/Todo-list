@@ -4,7 +4,7 @@ import Form from "./Form";
 import TodoList from "./TodoList";
 
 const TodoApp = () => {
-  const [title, setTitle] = useState("");
+  const [value, setValue] = useState({title:''});
   const [show, setShow] = useState(false);
 
 
@@ -12,8 +12,8 @@ const TodoApp = () => {
     <>
       <motion.div className="todoapp">
         <h1>Todo App</h1>
-        <Form title={title} setTitle={setTitle} show={show} />
-        <TodoList setTitle={setTitle} show={show} setShow={setShow}/>
+        <Form value={value} setValue={setValue} show={show} setShow={setShow} />
+        <TodoList setValue={setValue} show={show} setShow={setShow}/>
       </motion.div>
     </>
   );

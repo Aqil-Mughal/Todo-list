@@ -5,7 +5,7 @@ import CheckCircleOutlineRoundedIcon from "@material-ui/icons/CheckCircleOutline
 import HighlightOffRoundedIcon from "@material-ui/icons/HighlightOffRounded";
 import { motion } from "framer-motion";
 
-const Todo = ({ todo, setTitle, show, setShow }) => {
+const Todo = ({ todo, setValue, show, setShow }) => {
   const deleteTodo = () => {
     const todoRef = firebase.database().ref("Todo").child(todo.id);
     todoRef.remove();
@@ -18,7 +18,7 @@ const Todo = ({ todo, setTitle, show, setShow }) => {
     console.log(todo);
     // const todoRef = firebase.database().ref("Todo").child(todo.id);
     // todoRef.update({ complete: !todo.complete });
-    setTitle(todo.title);
+    setValue(todo);
     setShow(!show);
   };
 

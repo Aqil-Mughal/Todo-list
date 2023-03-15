@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import Todo from "./Todo";
 
-const TodoList = ({ setTitle, show, setShow }) => {
+const TodoList = ({ setValue, show, setShow }) => {
   const [todoList, setTodoList] = useState();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const TodoList = ({ setTitle, show, setShow }) => {
               <Todo
                 todo={todo}
                 key={index}
-                setTitle={setTitle}
+                setValue={setValue}
                 show={show}
                 setShow={setShow}
               />

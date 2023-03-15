@@ -3,27 +3,30 @@ import firebase from "../firebase";
 import { TextField } from "@material-ui/core";
 import AddCircleRoundedIcon from "@material-ui/icons/AddCircleRounded";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
-const Form = ({ title, setTitle, show, selectedTodo }) => {
+const Form = ({ value, setValue, show, setShow }) => {
   const handleOnChange = (e) => {
-    setTitle(e.target.value);
+    console.log(e.target.value)
+    setValue({
+      ...value,
+      title:[e.target.value]
+    });
   };
   
   const createTodo = () => {
     const todoRef = firebase.database().ref("Todo");
     const todo = {
-      title,
+      title : value.title ,
       complete: false,
     };
-    const updateTodo = () => {
-      const todoRef = firebase.database().ref("Todo");
-      if (selectedTodo) {
-        todoRef.child(selectedTodo.id).update(todo);
-      } else {
-        todoRef.plush(todo);
-      }
-    };
-    setTitle("");
+    todoRef.push(todo);
+    setValue({title:''});
   };
+  const updateValue =()=>{
+    console.log(value)
+        const todoRef = firebase.database().ref("Todo").child(value.id);
+    todoRef.update({ title: value.title });
+    setShow(!show)
+  }
   return (
     <>
       <div className="form">
@@ -31,14 +34,14 @@ const Form = ({ title, setTitle, show, selectedTodo }) => {
           variant="standard"
           label="Add Todo"
           type="text"
-          value={title}
+          value={value?.title}
           onChange={handleOnChange}
           className="textfield"
           size="medium"
         />
         {!show ? (
           <div className="add">
-            {title === "" ? (
+            {value === "" ? (
               <AddCircleOutlineOutlinedIcon fontSize="large" className="icon" />
             ) : (
               <AddCircleRoundedIcon
@@ -47,13 +50,14 @@ const Form = ({ title, setTitle, show, selectedTodo }) => {
                 className="icon"
               />
             )}
-            <div className="update">
-              <button disabled={!title} onClick={() => selectedTodo}>
-                Update
-              </button>
-            </div>
+           
           </div>
-        ) : null}
+        ) : 
+        <div className="update">
+        <button disabled={!value} onClick={updateValue}>
+          Update
+        </button>
+      </div>}
       </div>
     </>
   );
